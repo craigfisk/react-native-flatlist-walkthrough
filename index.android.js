@@ -6,7 +6,7 @@
    render(){
      return(
        <View>
-         <FlatListComponent message='Hi there!' />
+         <FlatListComponent />
        </View>
      );
    }
