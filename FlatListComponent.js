@@ -15,7 +15,7 @@ render(){
     {name: "Lily"},
     {name: "Holly"},
     {name: "Jasmine"},
-    {name: "Daisyy"},
+    {name: "Daisy"},
     {name: "Alyssum"},
     {name: "Poppy"},
     {name: "Violet"},
@@ -28,6 +28,7 @@ render(){
         renderItem={
           ({item}) => <Text>{item.name}</Text>
         }
+        keyExtractor ={ (item) => item.name }
       />
     </View>
   );
