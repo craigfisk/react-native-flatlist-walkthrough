@@ -1,7 +1,7 @@
 // FlatListComponent.js
 
-import React, {Component} from 'react';
-import {AppRegistry, Text, View, FlatList} from 'react-native';
+import React, { Component } from 'react';
+import { AppRegistry, Text, View, FlatList } from 'react-native';
 import {List, ListItem} from "react-native-elements";
 
 export default class FlatListComponent extends Component{
@@ -23,7 +23,7 @@ export default class FlatListComponent extends Component{
 
   makeRemoteRequest = () => {
     const { page, seed } = this.state;
-    const url = `https://randomuser.me/api/?seed=${seed}&page=${page}&result=20`;
+    const url = `https://randomuser.me/api/?seed=${seed}&page=${page}&results=20`;
     this.setState({ loading: true });
     fetch(url)
       .then(res => res.json())
