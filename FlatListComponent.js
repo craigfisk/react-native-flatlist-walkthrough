@@ -1,20 +1,34 @@
 // FlatListComponent.js
 
 import React, {Component} from 'react';
-import {AppRegistry, Text, View} from 'react-native';
+import {AppRegistry, Text, View, FlatList} from 'react-native';
 
 export default class FlatListComponent extends Component{
-constructor() {
-   super();
+constructor(props) {
+  super(props);
   this.state = {
      name: 'Craig'
   }
 }
 render(){
+  var flowers = [
+    {name: "Lily"},
+    {name: "Holly"},
+    {name: "Jasmine"},
+    {name: "Daisyy"},
+    {name: "Alyssum"},
+    {name: "Poppy"},
+    {name: "Violet"},
+    {name: "Ivy"}
+  ];
   return(
     <View>
-      <Text>{this.props.message}</Text>
-      <Text>{this.state.name}</Text>
+      <FlatList
+        data = {flowers}
+        renderItem={
+          ({item}) => <Text>{item.name}</Text>
+        }
+      />
     </View>
   );
 }
