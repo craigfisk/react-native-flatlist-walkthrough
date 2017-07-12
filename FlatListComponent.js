@@ -25,22 +25,25 @@ export default class FlatListComponent extends Component{
     const { page, seed } = this.state;
     const url = `https://randomuser.me/api/?seed=${seed}&page=${page}&results=20`;
     this.setState({ loading: true });
-    fetch(url)
-      .then(res => res.json())
-      .then(res => {
-        // data to store in state to be used to drive the FlatList
-        this.setState({
-          // data: page === 1 ? res.results : [...this.state.data, ...res.results],
-          data: [...this.state.data, ...res.results],
-          error: res.error || null,
-          loading: false,
-          refreshing: false
+
+    setTimeout(() => {
+      fetch(url)
+        .then(res => res.json())
+        .then(res => {
+          // data to store in state to be used to drive the FlatList
+          this.setState({
+            // data: page === 1 ? res.results : [...this.state.data, ...res.results],
+            data: [...this.state.data, ...res.results],
+            error: res.error || null,
+            loading: false,
+            refreshing: false
+          });
+        })
+        .catch(error => {
+          this.setState({ error, loading: false });
         });
-      })
-      .catch(error => {
-        this.setState({ error, loading: false });
-      });
-  }
+    }, 1500);
+  };
 
   renderSeparator = () => {
     return (
