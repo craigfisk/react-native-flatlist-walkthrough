@@ -41,6 +41,19 @@ export default class FlatListComponent extends Component{
       });
   }
 
+  renderSeparator = () => {
+    return (
+      <View
+        style={{
+          height: 1,
+          width: '86%',
+          backgroundColor: '#CED0CE',
+          marginLeft: '14%',
+        }}
+      />
+    );
+  };
+
   render(){
     return(
       <List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}>
@@ -56,6 +69,7 @@ export default class FlatListComponent extends Component{
             />
           )}
           keyExtractor={item => item.email}
+          ItemSeparatorComponent={this.renderSeparator}
         />
       </List>
     );
