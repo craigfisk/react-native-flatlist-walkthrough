@@ -30,7 +30,8 @@ export default class FlatListComponent extends Component{
       .then(res => {
         // data to store in state to be used to drive the FlatList
         this.setState({
-          data: page === 1 ? res.results : [...this.state.data, ...res.results],
+          // data: page === 1 ? res.results : [...this.state.data, ...res.results],
+          data: [...this.state.data, ...res.results],
           error: res.error || null,
           loading: false,
           refreshing: false
@@ -81,6 +82,14 @@ export default class FlatListComponent extends Component{
     );
   };
 
+  handleLoadMore = () => {
+    this.setState({
+      page: this.state.page + 1,
+    }, () => {
+      this.makeRemoteRequest();
+    });
+  };
+
   render(){
     return(
       <List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}>
@@ -102,6 +111,9 @@ export default class FlatListComponent extends Component{
 
           refreshing={this.state.refreshing}
           onRefresh={this.handleRefresh}
+
+          onEndReached={this.handleLoadMore}
+          onEndThreshold={0}
         />
       </List>
     );
