@@ -116,7 +116,7 @@ export default class FlatListComponent extends Component{
           onRefresh={this.handleRefresh}
 
           onEndReached={this.handleLoadMore}
-          onEndThreshold={0}
+          onEndThreshold={100}
         />
       </List>
     );
