@@ -1,7 +1,7 @@
 // FlatListComponent.js
 
 import React, { Component } from 'react';
-import { AppRegistry, Text, View, FlatList } from 'react-native';
+import { AppRegistry, Text, View, FlatList, ActivityIndicator } from 'react-native';
 import {List, ListItem, SearchBar} from "react-native-elements";
 
 export default class FlatListComponent extends Component{
@@ -59,6 +59,14 @@ export default class FlatListComponent extends Component{
     return <SearchBar placeholder="Type here..." lightTheme round />;
   };
 
+  renderFooter = () => {
+    return (
+      <View style={{paddingVertical: 20, borderTopWidth: 1, borderTopColor: '#CED0CE'}}>
+        <ActivityIndicator animating size="large" />
+      </View>
+    );
+  };
+
   render(){
     return(
       <List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}>
@@ -76,6 +84,7 @@ export default class FlatListComponent extends Component{
           keyExtractor={item => item.email}
           ItemSeparatorComponent={this.renderSeparator}
           ListHeaderComponent={this.renderHeader}
+          ListFooterComponent={this.renderFooter}
         />
       </List>
     );
