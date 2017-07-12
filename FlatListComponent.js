@@ -60,6 +60,7 @@ export default class FlatListComponent extends Component{
   };
 
   renderFooter = () => {
+    if (!this.state.loading) return null;
     return (
       <View style={{paddingVertical: 20, borderTopWidth: 1, borderTopColor: '#CED0CE'}}>
         <ActivityIndicator animating size="large" />
