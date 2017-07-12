@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { AppRegistry, Text, View, FlatList } from 'react-native';
-import {List, ListItem} from "react-native-elements";
+import {List, ListItem, SearchBar} from "react-native-elements";
 
 export default class FlatListComponent extends Component{
   constructor(props) {
@@ -54,6 +54,11 @@ export default class FlatListComponent extends Component{
     );
   };
 
+  renderHeader = () => {
+    // SearchBar see https://react-native-training.github.io/react-native-elements/API/searchbar/
+    return <SearchBar placeholder="Type here..." lightTheme round />;
+  };
+
   render(){
     return(
       <List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}>
@@ -70,6 +75,7 @@ export default class FlatListComponent extends Component{
           )}
           keyExtractor={item => item.email}
           ItemSeparatorComponent={this.renderSeparator}
+          ListHeaderComponent={this.renderHeader}
         />
       </List>
     );
