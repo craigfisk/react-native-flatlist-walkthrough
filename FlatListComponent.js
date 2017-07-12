@@ -43,7 +43,7 @@ export default class FlatListComponent extends Component{
 
   render(){
     return(
-      <List>
+      <List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}>
         <FlatList
           data = { this.state.data }
           renderItem={({ item }) => (
@@ -52,6 +52,7 @@ export default class FlatListComponent extends Component{
               title={`${item.name.first} ${item.name.last}`}
               subtitle={item.email}
               avatar={{ uri: item.picture.thumbnail}}
+              containerStyle={{ borderBottomWidth: 0 }}
             />
           )}
           keyExtractor={item => item.email}
