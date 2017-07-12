@@ -68,6 +68,19 @@ export default class FlatListComponent extends Component{
     );
   };
 
+  handleRefresh = () => {
+    this.setState(
+      {
+        page: 1,
+        refreshing: true,
+        seed: this.state.seed + 1,
+      },
+      () => {
+        this.makeRemoteRequest();
+      }
+    );
+  };
+
   render(){
     return(
       <List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}>
@@ -86,6 +99,9 @@ export default class FlatListComponent extends Component{
           ItemSeparatorComponent={this.renderSeparator}
           ListHeaderComponent={this.renderHeader}
           ListFooterComponent={this.renderFooter}
+
+          refreshing={this.state.refreshing}
+          onRefresh={this.handleRefresh}
         />
       </List>
     );
