@@ -12,4 +12,4 @@
    }
  }
 
- AppRegistry.registerComponent('myapp2', () => myapp2);
+AppRegistry.registerComponent('myapp2', () => myapp2);
