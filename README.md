@@ -1,5 +1,34 @@
 # Re-tracing Spencer Carli's FlatList demo
 
+2020-1-18 failing on npx @react-native-community/cli doctor with 
+
+warn The following packages use deprecated "rnpm" config that will stop working from next release:
+  - react-native-vector-icons: https://github.com/oblador/react-native-vector-icons
+Please notify their maintainers about it. You can find more details at https://github.com/react-native-community/cli/blob/master/docs/configuration.md#migration-guide.
+Common
+ ✓ Node.js
+ ✓ yarn
+
+Android
+ ✓ ANDROID_HOME
+ ✖ Android SDK - Required for building and installing your app on Android
+   - Version found: 23.0.1
+   - Version supported: >= 26.x
+
+Errors:   1
+Warnings: 0
+
+Usage
+ › Press f to try to fix issues.
+ › Press e to try to fix errors.
+ › Press w to try to fix warnings.
+ › Press Enter to exit.
+
+--------------------
+but "f" doesn't fix it. Can't see out how to do the Android SDK update for the app.
+--------------------
+
+
 - Youtube: [How to use the FlatList Component - React Native Basics](https://www.youtube.com/watch?v=r-ENJLGrd3s&app=desktop) 
 - Medium.com: [How to use the FlatList Component - React Native Basics](http://bit.ly/2tXcrE0)
 - Github: [react-native-flatlist-demo](https://github.com/spencercarli/react-native-flatlist-demo)
